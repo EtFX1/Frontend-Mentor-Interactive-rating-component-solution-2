@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Interactive rating component</title>
+    <!-- !favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- !google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- !stylesheet link -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- !script link -->
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- @! rating card container -->
+      <div class="card-cont" id="rating-card-cont">
+        <article class="card">
+          <!-- !star image -->
+          <span class="grey-background">
+            <img
+              id="star-image"
+              src="images/icon-star.svg"
+              alt="an image of a star"
+            />
+          </span>
+          <!-- !heading -->
+          <h2 class="heading">How did we do?</h2>
+          <p class="paragraph">
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+
+          <!-- !rating button form -->
+          <form id="form" action="get">
+            <div id="btn-cont">
+              <!-- @!button 1 -->
+              <!-- *button label  -->
+              <label for="rating-number-button-1">
+                <!-- *grey button background -->
+                <span class="grey-background">
+                  <!-- *button -->
+                  <button class="rating-btn" type="button" value="1">
+                    1
+                    <!-- *button input type (radiobutton) -->
+                    <input
+                      class="radio-btn-input"
+                      id="rating-number-button-1"
+                      type="radio"
+                      name="rating"
+                      value="1"
+                    />
+                  </button>
+                </span>
+              </label>
+
+              <!-- @!button 2 -->
+              <!-- *button label  -->
+              <label for="rating-number-button-2">
+                <!-- *grey button background -->
+                <span class="grey-background">
+                  <!-- *button -->
+                  <button class="rating-btn" type="button" value="2">
+                    2
+                    <!-- *button input type (radiobutton) -->
+                    <input
+                      class="radio-btn-input"
+                      id="rating-number-button-2"
+                      type="radio"
+                      name="rating"
+                      value="2"
+                    />
+                  </button>
+                </span>
+              </label>
+
+              <!-- @!button 3 -->
+              <!-- *button label  -->
+              <label for="rating-number-button-3">
+                <!-- *grey button background -->
+                <span class="grey-background">
+                  <!-- *button -->
+                  <button class="rating-btn" type="button" value="3">
+                    3
+                    <!-- *button input type (radiobutton) -->
+                    <input
+                      class="radio-btn-input"
+                      id="rating-number-button-3"
+                      type="radio"
+                      name="rating"
+                      value="3"
+                    />
+                  </button>
+                </span>
+              </label>
+
+              <!-- @!button 4 -->
+              <!-- *button label  -->
+              <label for="rating-number-button-4">
+                <!-- *grey button background -->
+                <span class="grey-background">
+                  <!-- *button -->
+                  <button class="rating-btn" type="button" value="4">
+                    4
+                    <!-- *button input type (radiobutton) -->
+                    <input
+                      class="radio-btn-input"
+                      id="rating-number-button-4"
+                      type="radio"
+                      name="rating"
+                      value="4"
+                    />
+                  </button>
+                </span>
+              </label>
+
+              <!-- @!button 5 -->
+              <!-- *button label  -->
+              <label for="rating-number-button-5">
+                <!-- *grey button background -->
+                <span class="grey-background">
+                  <!-- *button -->
+                  <button class="rating-btn" type="button" value="5">
+                    5
+                    <!-- *button input type (radiobutton) -->
+                    <input
+                      class="radio-btn-input"
+                      id="rating-number-button-5"
+                      type="radio"
+                      name="rating"
+                      value="5"
+                    />
+                  </button>
+                </span>
+              </label>
+            </div>
+
+            <!-- !submit button -->
+            <button type="submit" id="submit-btn">SUBMIT</button>
+          </form>
+        </article>
+      </div>
+
+      <!-- @!thank you card container -->
+      <div class="card-cont" id="thank-you-card-cont">
+        <article id="thank-you-card" class="card">
+          <!-- *thank you image -->
+          <img src="images/illustration-thank-you.svg" alt="" />
+          <!-- *rating number out of 5 -->
+          <span id="rating-bg">
+            <p id="rating">You selected <span id="rating-num"></span> out of 5</p>
+          </span>
+          <!-- *thank you message -->
+          <h2 class="heading">Thank You!</h2>
+          <!-- *paragraph -->
+          <p class="paragraph">
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don't hesitate to get in touch!
+          </p>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
