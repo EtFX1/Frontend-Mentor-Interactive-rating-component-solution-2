@@ -8,8 +8,9 @@ const radio_buttons = getByClassName("rating-btn"),
   rating_card = getByID("rating-card-cont"),
   thank_you_card = getByID("thank-you-card-cont");
 
-//? initialising flag variable to check if a rating has been clicked
+//? initialising flag vagit rm --cached -r [file] to remove all files from the staging areariable to check if a rating has been clicked
 let rating_selected = false;
+// check line 13 in main branch 
 
 //! function to allow user to select rating
 const selectRating = (callback) => {
