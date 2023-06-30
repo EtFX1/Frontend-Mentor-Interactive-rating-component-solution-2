@@ -1,21 +1,19 @@
 //* functions to grab any element by it's id and class name
-let getByID = (elem_id) => document.getElementById(elem_id);
-let getByClassName = (elem_class) => document.getElementsByClassName(elem_class);
+const getByID = (elem_id) => document.getElementById(elem_id);
+const getByClassName = (elem_class) => document.getElementsByClassName(elem_class);
 
 //* stores the list of input elements
-const radio_buttons = getByClassName("rating-btn"),
+const radio_buttons = getByClassName("radio-btn-label"),
   form_elem = getByID("form"),
   rating_card = getByID("rating-card-cont"),
   thank_you_card = getByID("thank-you-card-cont");
 
-//? initialising flag vagit rm --cached -r [file] to remove all files from the staging areariable to check if a rating has been clicked
 let rating_selected = false;
-// check line 13 in main branch 
 
 //! function to allow user to select rating
 const selectRating = (callback) => {
   //* for loop to iterate over list of radio buttons
-  for (let radio_button of radio_buttons) {
+  for (const radio_button of radio_buttons) {
     //* "click" event listener
     radio_button.addEventListener("click", (event) => {
       rating_selected = true; //? means that a button has been clicked
@@ -32,9 +30,9 @@ const selectRating = (callback) => {
           //?removes the grey background from a button that is not clicked and toggles it onto a button that is clicked
 
           if (clicked_btn !== current_btn.value) {
-            current_btn.classList.remove("rating-btn-on-click");
+            current_btn.classList.remove("radio-btn-selected");
           } else {
-            event.target.classList.toggle("rating-btn-on-click");
+            event.target.classList.toggle("radio-btn-selected");
           }
         }
       };
