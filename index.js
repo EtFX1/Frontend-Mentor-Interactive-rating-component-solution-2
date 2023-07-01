@@ -3,7 +3,8 @@ const getByID = (elem_id) => document.getElementById(elem_id);
 const getByClassName = (elem_class) => document.getElementsByClassName(elem_class);
 
 //* stores the list of input elements
-const radio_buttons = getByClassName("radio-btn-label"),
+const radio_buttons_input = getByClassName("radio-btn-input"),
+  radio_buttons_label = getByClassName("radio-btn-label"),
   form_elem = getByID("form"),
   rating_card = getByID("rating-card-cont"),
   thank_you_card = getByID("thank-you-card-cont");
@@ -13,7 +14,7 @@ let rating_selected = false;
 //! function to allow user to select rating
 const selectRating = (callback) => {
   //* for loop to iterate over list of radio buttons
-  for (const radio_button of radio_buttons) {
+  for (const radio_button of radio_buttons_input) {
     //* "click" event listener
     radio_button.addEventListener("click", (event) => {
       rating_selected = true; //? means that a button has been clicked
@@ -22,8 +23,9 @@ const selectRating = (callback) => {
       const styleBtn = () => {
         //* "for..of" loop to iterate over buttons that were clicked
 
-        for (const current_btn of radio_buttons) {
+        for (let current_btn of radio_buttons_label) {
           const clicked_btn = event.target.value; //? stores the button that was clicked (rating number that was selected)
+          console.log(clicked_btn);
 
           //* if statement comparing the clicked button and current button
 
