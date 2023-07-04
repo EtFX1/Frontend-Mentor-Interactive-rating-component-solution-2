@@ -4,73 +4,78 @@ const getByClassName = (elem_class) => document.getElementsByClassName(elem_clas
 
 //* stores the list of input elements
 const radio_buttons_input = getByClassName("radio-btn-input"),
-  radio_buttons_label = getByClassName("radio-btn-label"),
-  form_elem = getByID("form"),
-  rating_card = getByID("rating-card-cont"),
-  thank_you_card = getByID("thank-you-card-cont");
+    radio_buttons_label = getByClassName("radio-btn-label"),
+    form_elem = getByID("form"),
+    rating_card = getByID("rating-card-cont"),
+    thank_you_card = getByID("thank-you-card-cont");
 
 let rating_selected = false;
 
-//! function to allow user to select rating
+//@! function to allow user to select rating (and updates the thank you card)
 const selectRating = (callback) => {
-  //* for loop to iterate over list of radio buttons
-  for (const radio_button of radio_buttons_input) {
-    //* "click" event listener
-    radio_button.addEventListener("click", (event) => {
-      rating_selected = true; //? means that a button has been clicked
+    //* for loop to iterate over list of radio buttons
+    for (const label_elem of radio_buttons_input) {
 
-      //! function that styles radio button...
-      const styleBtn = () => {
-        //* "for..of" loop to iterate over buttons that were clicked
+        //* "click" event listener
+        label_elem.addEventListener("click", (event) => {
 
-        for (let current_btn of radio_buttons_label) {
-          const clicked_btn = event.target.value; //? stores the button that was clicked (rating number that was selected)
-          console.log(clicked_btn);
+            rating_selected = true; //? flag variable to register a clicked button
 
-          //* if statement comparing the clicked button and current button
+            //! function to style radio button...
+            const styleBtn = () => {
 
-          //?removes the grey background from a button that is not clicked and toggles it onto a button that is clicked
+                //* "for..of" loop to iterate over buttons that were clicked
+                for (const label_elem of radio_buttons_label) {
 
-          if (clicked_btn !== current_btn.value) {
-            current_btn.classList.remove("radio-btn-selected");
-          } else {
-            event.target.classList.toggle("radio-btn-selected");
-          }
-        }
-      };
-      styleBtn();
+                    let clicked_radio_btn = event.target.value; //? stores the button number that was clicked (rating number that was selected)
 
-      //* retrieving and displaying the user's rating selection by reading and updating the value
+                    //* if statement comparing the clicked button and current button
 
-      const displaySelection = () => {
-        const user_selection = event.target.value; //? reads the "value=" attribute of the selected radio button element from the html
+                    //?removes the grey background from a button that is not clicked and toggles it onto a button that is clicked
 
-        let displayed_rating = getByID("rating-num"); //? variable to store the "rating" span element from the HTML which will contain the user's selection
+                    if (clicked_radio_btn !== label_elem.id) {
+                        label_elem.classList.remove("radio-btn-selected");
+                    } else {
+                        event.target.classList.toggle("radio-btn-selected");
+                    }
+                };
+            }
+            styleBtn();
 
-        displayed_rating.innerHTML = user_selection; //? updates the innerHTML of the final rating class ("answer")
-      };
-      displaySelection();
-    });
-  }
-  callback();
+
+            //! function to retrieve the user's selected rating, and display it on the console
+            const displaySelection = () => {
+                const user_selection = event.target.value; //? reads the "value=" attribute of the selected radio button element from the html
+
+                let displayed_rating = getByID("rating-num"); //? variable to store the "rating" span element from the HTML which will contain the user's selection
+
+                displayed_rating.innerHTML = user_selection; //? updates the innerHTML of the final rating class ("answer")
+            };
+            displaySelection();
+
+        });
+    }
+    callback();
 };
 
-//* form submit
+//@! form submit function to submit form
 const submitForm = () => {
-  form_elem.addEventListener("submit", (event) => {
-    //? prevents the default form behaviour
-    event.preventDefault();
+    form_elem.addEventListener("submit", (event) => {
+        //? prevents the default form behaviour
+        event.preventDefault();
 
-    //* if statement to prevent the form from submitting if a radio button is not selected
-    if (!rating_selected) {
-      alert("Please select a rating number");
-    } else {
-      //* else means a button was clicked (is_clicked=== true)
-      rating_card.style.display = "none";
-      thank_you_card.style.display = "grid";
-    }
-  });
+        //* if statement to prevent the form from submitting if a radio button is not selected
+        if (!rating_selected) {
+            alert("Please select a rating number");
+        } else {
+            //* else means a button was clicked (is_clicked=== true)
+            rating_card.style.display = "none";
+            thank_you_card.style.display = "grid";
+        }
+    });
 };
 
 //? calling the "submitForm()" function as a callback (so it'll be executed after "selectRating")
 selectRating(submitForm);
+
+
