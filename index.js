@@ -21,28 +21,6 @@ const selectRating = (callback) => {
 
             rating_selected = true; //? flag variable to register a clicked button
 
-            //! function to style radio button...
-            const styleBtn = () => {
-
-                //* "for..of" loop to iterate over buttons that were clicked
-                for (const label_elem of radio_buttons_label) {
-
-                    let clicked_radio_btn = event.target.value; //? stores the button number that was clicked (rating number that was selected)
-
-                    //* if statement comparing the clicked button and current button
-
-                    //?removes the grey background from a button that is not clicked and toggles it onto a button that is clicked
-
-                    if (clicked_radio_btn !== label_elem.id) {
-                        label_elem.classList.remove("radio-btn-selected");
-                    } else {
-                        event.target.classList.toggle("radio-btn-selected");
-                    }
-                };
-            }
-            styleBtn();
-
-
             //! function to retrieve the user's selected rating, and display it on the console
             const displaySelection = () => {
                 const user_selection = event.target.value; //? reads the "value=" attribute of the selected radio button element from the html
