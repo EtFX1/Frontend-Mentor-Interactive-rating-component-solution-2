@@ -34,8 +34,8 @@ Desktop Screenshot:
 
 ### Links
 
-- [Solution URL](Frontend-Mentor-Interactive-rating-component-2)
-- [Live Site URL](https://github.com/EtFX1/Frontend-Mentor-Interactive-rating-component-solution-2)
+- [Live Site URL](https://etfx1.github.io/Frontend-Mentor-Interactive-rating-component-solution-2/)
+- [Solution Site URL](https://github.com/EtFX1/Frontend-Mentor-Interactive-rating-component-solution-2)
 
 ## My process
 
