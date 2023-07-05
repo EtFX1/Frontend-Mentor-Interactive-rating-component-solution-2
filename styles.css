@@ -1,12 +1,13 @@
 :root {
 
   /* *grey background for star and radio buttons */
-  --circle-background: rgba(90, 98, 101, 0.2);
-  --selected-button: rgb(124, 135, 152);
+  --circle-bg-grey: rgba(90, 98, 101, 0.2);
+  --selected-btn-grey: rgb(124, 135, 152);
+  --hovered-btn-orange: hsl(25, 97%, 53%);
   --main-font: "Overpass", sans-serif;
 }
 
-/* *targets the body and main container */
+/* *styles the body and main container */
 body,
 main {
   height: 100vh;
@@ -19,81 +20,98 @@ main {
   letter-spacing: 0.3px;
 }
 
-/* *targets h1 */
-h2.heading {
-  color: hsl(0, 0%, 100%);
-  margin-bottom: 0;
-}
 
-/* *targets span element around star*/
-span.star-bg {
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  background-color: var(--circle-background);
-  display: grid;
-  place-items: center;
-}
-
-/* *targets containers for BOTH CARDS */
+/* @!card container and actual card */
+/* *styles containers for BOTH CARDS (rating and thank you card) */
 .card-cont {
   width: 90%;
   /* ?instead of a media query, just set a maximum width */
   max-width: 400px;
 }
 
-/* *targets actual card content for BOTH CARDS */
+/* *styles card background*/
 .card {
   background-color: hsl(213, 19%, 18%);
   border-radius: 20px;
   padding: 8%;
+  box-shadow: 12px 10px 20px 5px hsl(0, 0%, 3%);
 }
 
-/* *targets paragraph */
+/* @!card content */
+
+/* *targets span element around star*/
+span.star-bg {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background-color: var(--circle-bg-grey);
+  display: grid;
+  place-items: center;
+}
+
+
+/* *styles h1 */
+h2.heading {
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 0;
+}
+
+/* *styles paragraph */
 .paragraph {
   font-size: 13px;
   color: hsl(217, 12%, 63%);
 }
 
-/* *targets container holding radio buttons form */
+/* *styles container holding radio buttons form */
 
-#rating-btns-cont {
+fieldset#rating-btns-cont {
+  border:none;
   display: flex;
-  margin: 28px 0 28px;
-  justify-content: space-between;
+  margin: 28px 0 28px -21px;
+  padding: 0;
+  justify-content: space-around;
 }
 
-/* *targets radio inputs */
-input[type="radio"] {
+
+/* *styles radio input buttons */
+.radio-btn-input {
   appearance: none;
-}
-
-/* *targets radio button labels */
-label.radio-btn-label {
-  background-color: var(--circle-background);
-  display: grid;
-  place-items: center;
-  color: hsl(217, 12%, 63%);
+  background-color: var(--circle-bg-grey);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 
-/* *click style */
-
-.radio-btn-selected {
-  background-color: var(--selected-button);
-  color: rgb(255, 255, 255);
+/* *styles radio button numbers */
+.radio-btn-label  {
+  font-size: 0.8rem;
+  color: hsl(217, 12%, 63%);
+  margin-left: -3.8rem;
+  margin-top: 0.9rem;
 }
 
-/* *changes color to orange on hover*/
-.radio-btn-label:hover {
+/* *changes the background color of radio button to grey when clicked/focus (and color of label to white)  */
+
+.radio-btn-input:checked, 
+.radio-btn-input:focus {
+  background-color: var(--selected-btn-grey);
+  outline:none;     
+}
+
+/* *changes background color to orange on hover */
+.radio-btn-input:hover {
+  background-color: var(--hovered-btn-orange);
+}
+
+/* *changes the label to white when the input is selected, focused or hovered */
+.radio-btn-input:checked + .radio-btn-label, 
+.radio-btn-input:focus + .radio-btn-label , 
+.radio-btn-input:hover + .radio-btn-label {
   color: hsl(0, 0%, 100%);
-  background-color: hsl(25, 97%, 53%);
 }
 
-/* *submit button */
+/* *styling for submit button */
 #submit-btn {
   font-family: var(--main-font);
   background-color: hsl(25, 97%, 53%);
@@ -105,23 +123,25 @@ label.radio-btn-label {
   letter-spacing: 2px;
 }
 
-/* *changes color to orange on hover*/
-#submit-btn:hover {
+/* *changes background color of submit button to orange on hover and focus*/
+#submit-btn:hover,  #submit-btn:focus{
   background-color: hsl(0, 0%, 100%);
   color: hsl(25, 97%, 53%);
+  outline: none;
 }
 
-.radio-btn-label:hover, #submit-btn:hover {
-  transition-duration: 0.1s;
+/* * delays hover effect on hover button by 0.1s */
+#submit-btn:hover {
+  transition-duration: 0.2s;
 }
 
-/* *targets thank you card */
+/* *styling for thank you card */
 #thank-you-card-cont {
   display: none;
   text-align: center;
 }
 
-/* *targets the grey background surrounding the rating */
+/* *styling the grey background surrounding the rating text */
 #rating-bg {
   margin-top: 17.4px;
   width: 150px;
