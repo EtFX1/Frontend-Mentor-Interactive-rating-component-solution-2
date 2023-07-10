@@ -34,8 +34,8 @@ Desktop Screenshot:
 
 ### Links
 
-- [Solution URL](Frontend-Mentor-Interactive-rating-component-2)
-- [Live Site URL](https://etfx1.github.io/-Frontend-Mentor-Interactive-rating-component-solution/)
+- [Live Site URL](https://etfx1.github.io/Frontend-Mentor-Interactive-rating-component-solution-2/)
+- [Solution Site URL](https://github.com/EtFX1/Frontend-Mentor-Interactive-rating-component-solution-2)
 
 ## My process
 
@@ -54,6 +54,8 @@ I would like to continue building my skills in vanilla javascript before eventua
 ### Useful resources
 
 - [The Complete 2023 Web Developer Bootcamp]((https://www.udemy.com/course/the-complete-web-development-bootcamp/?matchtype=)>) - This taught me majority of my javascript skills. Really well broken down and explained.
+- [How to Create a Custom Radio Button - HTML & CSS Tutorial- dcode](https://www.youtube.com/watch?v=5K7JefKDa4s&t=594s) - Taught me how to style radio buttons
+- [Pure CSS Custom Styled Radio Buttons -modern css dev](https://moderncss.dev/pure-css-custom-styled-radio-buttons/) - Taught me how to accessibly style radio buttons
 
 ## Author
 
