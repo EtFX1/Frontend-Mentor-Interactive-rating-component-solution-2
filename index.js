@@ -9,51 +9,45 @@ const radio_buttons_input = getByClassName("radio-btn-input"),
     rating_card = getByID("rating-card-cont"),
     thank_you_card = getByID("thank-you-card-cont");
 
-let rating_selected = false;
 
-//@! function to allow user to select rating (and updates the thank you card)
-const selectRating = (callback) => {
-    //* for loop to iterate over list of radio buttons
-    for (const label_elem of radio_buttons_input) {
-
-        //* "click" event listener
-        label_elem.addEventListener("click", (event) => {
-
-            rating_selected = true; //? flag variable to register a clicked button
-
-            //! function to retrieve the user's selected rating, and display it on the console
-            const displaySelection = () => {
-                const user_selection = event.target.value; //? reads the "value=" attribute of the selected radio button element from the html
-
-                let displayed_rating = getByID("rating-num"); //? variable to store the "rating" span element from the HTML which will contain the user's selection
-
-                displayed_rating.innerHTML = user_selection; //? updates the innerHTML of the final rating class ("answer")
-            };
-            displaySelection();
-
-        });
-    }
-    callback();
-};
 
 //@! form submit function to submit form
 const submitForm = () => {
+    //! event listener function to handle for form submission
     form_elem.addEventListener("submit", (event) => {
         //? prevents the default form behaviour
         event.preventDefault();
 
-        //* if statement to prevent the form from submitting if a radio button is not selected
-        if (!rating_selected) {
-            alert("Please select a rating number");
-        } else {
-            //* else means a button was clicked (is_clicked=== true)
-            rating_card.style.display = "none";
-            thank_you_card.style.display = "grid";
-        }
+        //! function to retrieve the user's selected rating, and display it on the console
+        const displaySelection = () => {
+
+            //? variable that stores the form data using the 
+            const form_data = new FormData(event.target);
+
+            //? FormData: get() method gets the value of the `rating` field
+            const user_selection = form_data.get('rating');
+
+            let rating_out_of_5 = getByID("rating-out-of-5"); //? variable to store the "rating-out-of-5" element from the HTML which contains the user's selection
+
+            rating_out_of_5.innerHTML = user_selection; //? updates the innerHTML of the  class ("answer")
+
+            //* if statement to prevent the form from submitting if a radio button is not selected
+            if (user_selection === null) {
+                alert("Please select a rating number");
+            } else {
+                //* else means a button was clicked (is_clicked=== true)
+                rating_card.style.display = "none";
+                thank_you_card.style.display = "grid";
+            }
+        };
+        displaySelection();
     });
+
 };
 
+submitForm();
+
 //? calling the "submitForm()" function as a callback (so it'll be executed after "selectRating")
-selectRating(submitForm);
+
 
 
