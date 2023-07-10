@@ -9,8 +9,6 @@ const radio_buttons_input = getByClassName("radio-btn-input"),
     rating_card = getByID("rating-card-cont"),
     thank_you_card = getByID("thank-you-card-cont");
 
-
-
 //@! form submit function to submit form
 const submitForm = () => {
     //! event listener function to handle for form submission
@@ -44,10 +42,5 @@ const submitForm = () => {
     });
 
 };
-
+//? calling the "submitForm()" function
 submitForm();
-
-//? calling the "submitForm()" function as a callback (so it'll be executed after "selectRating")
-
-
-
